@@ -1,18 +1,14 @@
 <?php
 
+use App\Http\Controllers\CallController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\TeamMemberController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [DashboardController::class, 'welcome'])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -24,4 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::Resource('posts', PostController::class)->only(['index', 'show'])->names('posts');
+Route::Resource('calls', CallController::class)->only(['index', 'show'])->names('calls');
+Route::Resource('team-members', TeamMemberController::class)->only(['index', 'show'])->names('team-members');
+
+require __DIR__ . '/auth.php';
