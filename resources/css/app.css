@@ -1,6 +1,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.content-notice p {
-    @apply text-sm text-gray-600 text-justify line-clamp-6;
-}
+

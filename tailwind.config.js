@@ -1,6 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
-import animations from '@midudev/tailwind-animations'
+import primeui from 'tailwindcss-primeui'
 
 
 /** @type {import('tailwindcss').Config} */
@@ -34,5 +34,5 @@ export default {
         },
     },
 
-    plugins: [forms, animations],
+    plugins: [forms, primeui],
 };
