@@ -21,9 +21,9 @@
         style="background: linear-gradient(0deg, rgba(255, 0, 0, .5), rgba(255, 255, 0, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(195, 227, 250) 100%, rgb(238, 239, 175) 0%); clip-path: ellipse(150% 87% at 93% 13%)"
     >
 
-        <img alt="Hero Image" class="absolute top-0 w-full min-h-screen"
+        <img alt="Hero Image" class="absolute top-0 w-full md:min-h-screen"
              src="assets/img/HERO.jpg"/>
-        <div class="min-h-screen z-10 max-w-7xl mx-auto text-center py-20">
+        <div class="md:min-h-screen z-10 w-full mx-4 md:max-w-7xl md:mx-auto text-center py-20">
             <h1 class="text-4xl font-bold text-white  leading-tight ">
                 <span class="bg-red-500/60 px-4 py-2 rounded-full">
                 Eu sem integereget magna fermentum

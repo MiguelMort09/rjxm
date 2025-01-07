@@ -75,8 +75,8 @@ const responsiveOptions = ref([
                         />
                     </div>
                     <div class="flex-1 flex items-center justify-center lg:order-first">
-                        <div class="p-6 pt-12 lg:p-12">
-                            <h1 class="text-3xl lg:text-5xl font-bold text-surface-900 mb-4 lg:leading-normal text-center lg:text-left">
+                        <div class="px-2 mx:px-6 pt-12 lg:px-12">
+                            <h1 class="text-xl sm:text-3xl lg:text-5xl font-bold text-surface-900 mb-4 lg:leading-normal text-center lg:text-left">
                                 {{ postFeatured.title }}
                             </h1>
                             <p class="text-black text-lg leading-normal mb-8 text-center text-justify"
@@ -97,12 +97,12 @@ const responsiveOptions = ref([
             <p>{{ errorMessage }}</p>
         </div>
 
-        <div class=" w-full p-20">
+        <div class=" w-full p-4 md:px-10 xl:p-20">
             <Carousel :autoplayInterval="3000" :numScroll="1" :numVisible="3" :responsiveOptions="responsiveOptions"
                       :value="posts"
                       circular>
                 <template #item="slotProps">
-                    <Card class="mx-5">
+                    <Card class="mx-2 md:mx-4">
                         <template #header>
                             <img :alt="`Cover image for ${slotProps.data.title}`" :src="slotProps.data.cover_image"
                                  class="h-52 w-full object-cover"/>
