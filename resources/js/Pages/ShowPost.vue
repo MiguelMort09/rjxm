@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import GuestLayout from "@/Layouts/GuestLayout.vue";
-import Splitter from "primevue/splitter";
-import SplitterPanel from "primevue/splitterpanel";
 import DataView from "primevue/dataview";
 import axios from "axios";
 import {Link} from "@inertiajs/vue3";
@@ -47,9 +45,40 @@ onMounted(() => {
         <div class="min-h-screen bg-gray-100 flex flex-col items-center">
             <div class="bg-red-600 w-full h-52 md:h-80 flex items-center justify-center">
             </div>
-            <Splitter :unstyled="true" class="relative container max-w-7xl mx-auto 2xl:max-w-screen-2xl">
+            <div class="relative container md:max-w-7xl md:mx-auto 2xl:max-w-screen-2xl md:flex px-4">
                 <!-- Panel izquierdo -->
-                <SplitterPanel :size="30" class="w-full flex flex-col justify-center p-10">
+                <div
+                    class="bg-white h-full shadow-xl rounded-xl flex items-center justify-center w-full md:w-2/3 -mt-16 md:-mt-40 mb-12 z-40"
+                >
+                    <div class="w-full p-10">
+                        <div class="text-center space-y-6">
+                            <!-- Título del post -->
+                            <h1
+                                class="text-xl md:text-2xl xl:text-4xl font-extrabold text-gray-900 leading-tight tracking-wide border-b-4 border-red-600 pb-4"
+                            >
+                                {{ props.post.title }}
+                            </h1>
+
+                            <!-- Imagen de portada -->
+                            <div class="overflow-hidden rounded-lg shadow-lg">
+                                <img
+                                    :alt="props.post.title"
+                                    :src="props.post.cover_image"
+                                    class="h-[40vh] w-full object-cover"
+                                />
+                            </div>
+
+                            <!-- Descripción del post -->
+                            <p
+                                class="text-sm xl:text-lg text-gray-700 leading-relaxed text-justify"
+                                v-html="props.post.description"
+                            ></p>
+
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="w-full flex flex-col justify-center py-10 p-4 md:p-6 lg:p-10 w-full md:w-1/3 md:order-first">
                     <h3 class="text-center font-semibold text-2xl uppercase text-gray-800 mb-6 border-b-4 border-red-600 pb-2">
                         Te puede interesar
                     </h3>
@@ -76,41 +105,11 @@ onMounted(() => {
                             </div>
                         </template>
                     </DataView>
-                </SplitterPanel>
+                </div>
 
                 <!-- Panel derecho -->
-                <SplitterPanel
-                    :size="70"
-                    class="bg-white h-full shadow-xl rounded-xl flex items-center justify-center -mt-16 md:-mt-40 mb-12 z-40"
-                >
-                    <div class="w-full p-10">
-                        <div class="text-center space-y-6">
-                            <!-- Título del post -->
-                            <h1
-                                class="text-4xl font-extrabold text-gray-900 leading-tight tracking-wide border-b-4 border-red-600 pb-4"
-                            >
-                                {{ props.post.title }}
-                            </h1>
 
-                            <!-- Imagen de portada -->
-                            <div class="overflow-hidden rounded-lg shadow-lg">
-                                <img
-                                    :alt="props.post.title"
-                                    :src="props.post.cover_image"
-                                    class="h-[40vh] w-full object-cover"
-                                />
-                            </div>
-
-                            <!-- Descripción del post -->
-                            <p
-                                class="text-lg text-gray-700 leading-relaxed text-justify"
-                                v-html="props.post.description"
-                            ></p>
-
-                        </div>
-                    </div>
-                </SplitterPanel>
-            </Splitter>
+            </div>
         </div>
     </GuestLayout>
 </template>
