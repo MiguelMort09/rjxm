@@ -24,12 +24,12 @@
         <img alt="Hero Image" class="absolute top-0 w-full md:min-h-screen"
              src="assets/img/HERO.jpg"/>
         <div class="md:min-h-screen z-10 w-full mx-4 md:max-w-7xl md:mx-auto text-center py-20">
-            <h1 class="text-4xl font-bold text-white  leading-tight ">
+            <h1 class="text-lg md:text-2xl xl:text-4xl font-bold text-white  leading-tight ">
                 <span class="bg-red-500/60 px-4 py-2 rounded-full">
                 Eu sem integereget magna fermentum
                     </span>
             </h1>
-            <p class="font-normal text-2xl leading-normal md:mt-4 text-red-500 bg-white/50 px-4 py-2 rounded-full">
+            <p class="font-normal text-base md:text-xl lg:text-2xl leading-normal md:mt-4 text-red-500 bg-white/50 px-4 py-2 rounded-full">
                 Sed blandit libero volutpat sed cras. Fames ac turpis egestas integer. Placerat in egestas erat...
             </p>
             <Button as="router-link"

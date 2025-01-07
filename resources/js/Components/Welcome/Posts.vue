@@ -50,6 +50,8 @@ const responsiveOptions = ref([
         breakpoint: '575px',
         numVisible: 1,
         numScroll: 1,
+        showNavigators: false
+
     },
 ]);
 </script>
@@ -97,7 +99,7 @@ const responsiveOptions = ref([
             <p>{{ errorMessage }}</p>
         </div>
 
-        <div class=" w-full p-4 md:px-10 xl:p-20">
+        <div class="w-full px-4 py-10 md:px-10 xl:p-20">
             <Carousel :autoplayInterval="3000" :numScroll="1" :numVisible="3" :responsiveOptions="responsiveOptions"
                       :value="posts"
                       circular>
