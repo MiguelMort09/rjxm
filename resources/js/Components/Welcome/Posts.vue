@@ -50,8 +50,6 @@ const responsiveOptions = ref([
         breakpoint: '575px',
         numVisible: 1,
         numScroll: 1,
-        showNavigators: false
-
     },
 ]);
 </script>
