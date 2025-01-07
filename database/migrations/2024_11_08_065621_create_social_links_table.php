@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('social_links', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('key');
-            $table->string('value');
+            $table->string('url');
+            $table->foreignId('team_member_id')->constrained('team_members');
             $table->timestamps();
         });
     }

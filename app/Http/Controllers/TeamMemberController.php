@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTeamMemberRequest;
 use App\Http\Requests\UpdateTeamMemberRequest;
+use App\Http\Resources\TeamMemberResource;
 use App\Models\TeamMember;
 
 class TeamMemberController extends Controller
@@ -13,7 +14,7 @@ class TeamMemberController extends Controller
      */
     public function index()
     {
-        return TeamMember::all()->jsonSerialize();
+        return response()->json(TeamMemberResource::collection(TeamMember::all()));
     }
 
     /**

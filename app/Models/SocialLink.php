@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SocialLink extends Model
 {
@@ -13,4 +14,14 @@ class SocialLink extends Model
         'name',
         'url'
     ];
+
+    public function teamMember(): BelongsTo
+    {
+        return $this->belongsTo(TeamMember::class);
+    }
+
+    public function facebook()
+    {
+        return SocialLink::query()->where('name', 'facebook')->first();
+    }
 }
