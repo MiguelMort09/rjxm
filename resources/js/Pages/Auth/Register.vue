@@ -2,10 +2,11 @@
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import TextInput from '@/Components/TextInput.vue';
+import InputText from 'primevue/inputtext';
 import {Head, Link, useForm} from '@inertiajs/vue3';
 import Button from "primevue/button";
 import Image from "primevue/image";
+import Password from 'primevue/password';
 
 const form = useForm({
     name: '',
@@ -42,7 +43,7 @@ const submit = () => {
                         <div>
                             <InputLabel for="name" value="Name"/>
 
-                            <TextInput
+                            <InputText
                                 id="name"
                                 v-model="form.name"
                                 autocomplete="name"
@@ -58,7 +59,7 @@ const submit = () => {
                         <div class="mt-4">
                             <InputLabel for="email" value="Email"/>
 
-                            <TextInput
+                            <InputText
                                 id="email"
                                 v-model="form.email"
                                 autocomplete="username"
@@ -70,36 +71,32 @@ const submit = () => {
                             <InputError :message="form.errors.email" class="mt-2"/>
                         </div>
 
-                        <div class="mt-4">
+                        <div class="mt-4 w-full">
                             <InputLabel for="password" value="Password"/>
-
-                            <TextInput
-                                id="password"
-                                v-model="form.password"
-                                autocomplete="new-password"
-                                class="mt-1 block w-full"
-                                required
-                                type="password"
+                            <Password id="password"
+                                      v-model="form.password"
+                                      autocomplete="new-password"
+                                      fluid
+                                      required
+                                      toggleMask
                             />
-
                             <InputError :message="form.errors.password" class="mt-2"/>
                         </div>
 
-                        <div class="mt-4">
+                        <div class="mt-4 w-full">
                             <InputLabel
                                 for="password_confirmation"
                                 value="Confirm Password"
                             />
-
-                            <TextInput
+                            <Password
                                 id="password_confirmation"
                                 v-model="form.password_confirmation"
                                 autocomplete="new-password"
-                                class="mt-1 block w-full"
+                                fluid
                                 required
-                                type="password"
-                            />
 
+                                toggleMask
+                            />
                             <InputError
                                 :message="form.errors.password_confirmation"
                                 class="mt-2"
@@ -109,6 +106,7 @@ const submit = () => {
                         <Button
                             :class="{ 'opacity-25': form.processing }"
                             :disabled="form.processing"
+                            :type="'submit'"
                             class="mt-4 w-full"
                             label="Registrarse"
                         />
